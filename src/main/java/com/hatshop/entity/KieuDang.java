@@ -6,6 +6,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "KieuDang")
@@ -20,18 +24,8 @@ public class KieuDang implements Serializable {
 	private String maKieuDang;
 	
 	@Column
+	@NotBlank
 	private String tenKieuDang;
-
-	public KieuDang() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public KieuDang(String maKieuDang, String tenKieuDang) {
-		super();
-		this.maKieuDang = maKieuDang;
-		this.tenKieuDang = tenKieuDang;
-	}
 
 	public String getMaKieuDang() {
 		return maKieuDang;
@@ -52,6 +46,6 @@ public class KieuDang implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 	
+
 }

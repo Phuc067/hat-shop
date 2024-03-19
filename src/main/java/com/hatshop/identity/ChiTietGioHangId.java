@@ -1,31 +1,33 @@
 package com.hatshop.identity;
 
+import java.util.Objects;
+
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Embeddable
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ChiTietGioHangId {
 	private String maKhachHang;
 	private String maSanPham;
-	public ChiTietGioHangId() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public ChiTietGioHangId(String maKhachHang, String maSanPham) {
-		super();
-		this.maKhachHang = maKhachHang;
-		this.maSanPham = maSanPham;
-	}
-	public String getMaKhachHang() {
-		return maKhachHang;
-	}
-	public void setMaKhachHang(String maKhachHang) {
-		this.maKhachHang = maKhachHang;
-	}
-	public String getMaSanPham() {
-		return maSanPham;
-	}
-	public void setMaSanPham(String maSanPham) {
-		this.maSanPham = maSanPham;
-	}
-	
+
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChiTietGioHangId that = (ChiTietGioHangId) o;
+        return Objects.equals(maKhachHang, that.maKhachHang) &&
+                Objects.equals(maSanPham, that.maSanPham);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maKhachHang, maSanPham);
+    }
 }

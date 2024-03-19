@@ -12,7 +12,7 @@ import com.hatshop.identity.ChiTietDonHangId;
 import com.hatshop.service.ChiTietDonHangService;
 
 @RestController
-@RequestMapping(value = "api/chiTietDonHang")
+@RequestMapping(value = "api/chi-tiet-don-hang")
 public class ChiTietDonHangController {
 	
 	@Autowired

@@ -4,15 +4,23 @@ import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class SanPham  implements Serializable{
-
 	/**
 	 * 
 	 */
@@ -33,57 +41,14 @@ public class SanPham  implements Serializable{
 	
 	private String hinhAnh;
 	
-	@ManyToOne
+	private Boolean trangThai;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "MaKieuDang", referencedColumnName = "maKieuDang")
 	private KieuDang kieuDang;
 
-	public SanPham() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public SanPham(String maSanPham, String tenSanPham, int soLuong, KieuDang kieuDang) {
+	public SanPham(String maSanPham) {
 		super();
 		this.maSanPham = maSanPham;
-		this.tenSanPham = tenSanPham;
-		this.soLuong = soLuong;
-		this.kieuDang = kieuDang;
 	}
-
-	public String getMaSanPham() {
-		return maSanPham;
-	}
-
-	public void setMaSanPham(String maSanPham) {
-		this.maSanPham = maSanPham;
-	}
-
-	public String getTenSanPham() {
-		return tenSanPham;
-	}
-
-	public void setTenSanPham(String tenSanPham) {
-		this.tenSanPham = tenSanPham;
-	}
-
-	public int getSoLuong() {
-		return soLuong;
-	}
-
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
-	}
-
-	public KieuDang getkieuDang() {
-		return kieuDang;
-	}
-
-	public void setkieuDang(KieuDang kieuDang) {
-		this.kieuDang = kieuDang;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 }

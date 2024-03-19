@@ -12,7 +12,6 @@ import java.util.Optional;
 @Repository
 public interface ChiTietDonHangRepository extends JpaRepository<ChiTietDonHang, ChiTietDonHangId>
 {
-
 	public Optional<ChiTietDonHang> findById(ChiTietDonHangId id); 
 
 }

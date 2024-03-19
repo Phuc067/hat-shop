@@ -6,8 +6,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "Quyen")
 public class Quyen implements Serializable{
 
@@ -22,37 +28,4 @@ public class Quyen implements Serializable{
 	@Column
 	private String tenQuyen;
 
-	public Quyen() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Quyen(String maQuyen, String tenQuyen) {
-		super();
-		this.maQuyen = maQuyen;
-		this.tenQuyen = tenQuyen;
-	}
-
-	public String getMaQuyen() {
-		return maQuyen;
-	}
-
-	public void setMaQuyen(String maQuyen) {
-		this.maQuyen = maQuyen;
-	}
-
-	public String getTenQuyen() {
-		return tenQuyen;
-	}
-
-	public void setTenQuyen(String tenQuyen) {
-		this.tenQuyen = tenQuyen;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
-	
 }
