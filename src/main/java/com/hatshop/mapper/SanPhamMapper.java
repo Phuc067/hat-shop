@@ -21,7 +21,6 @@ public interface SanPhamMapper {
 	
 	SanPhamMapper INSTANT  = Mappers.getMapper(SanPhamMapper.class);
 	
-	@Mapping(source = "sanpham.kieuDang.maKieuDang", target = "maKieuDang")
 	@Mapping(target = "gia", expression = "java(getGia(sanpham))")
 	SanPhamDto entityToDto(SanPham sanpham);
 	

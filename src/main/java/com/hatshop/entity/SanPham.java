@@ -43,7 +43,7 @@ public class SanPham  implements Serializable{
 	
 	private Boolean trangThai;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "MaKieuDang", referencedColumnName = "maKieuDang")
 	private KieuDang kieuDang;
 

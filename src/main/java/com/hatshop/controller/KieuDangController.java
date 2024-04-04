@@ -18,7 +18,7 @@ import com.hatshop.model.ResponseObject;
 import com.hatshop.service.KieuDangService;
 
 @RestController
-@RequestMapping(value = "api/kieu-dang")
+@RequestMapping(value = "api/designs")
 public class KieuDangController {
 	@Autowired
 	private KieuDangService kieuDangService;
@@ -30,7 +30,7 @@ public class KieuDangController {
 		return ResponseEntity.status(responseObject.getHttpStatus()).body(responseObject.getObject());
 	}
 	
-	@PostMapping("")
+	@PostMapping("") 
 	public ResponseEntity<?> doAddKieuDang(@RequestBody KieuDang kieuDang)
 	{
 		ResponseObject responseObject = kieuDangService.add(kieuDang);

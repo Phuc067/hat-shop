@@ -34,8 +34,8 @@ public class KieuDangServiceImpl implements KieuDangService {
 			if (kieuDangRepository.existsById(kieuDang.getMaKieuDang())) {
 				return new ResponseObject(HttpStatus.CONFLICT, null);
 			}
-			kieuDangRepository.save(kieuDang);
-			return new ResponseObject(HttpStatus.ACCEPTED, null);
+			KieuDang kieuDangResponse = kieuDangRepository.save(kieuDang);
+			return new ResponseObject(HttpStatus.ACCEPTED, kieuDangResponse);
 		} catch (Exception e) {
 			return new ResponseObject(HttpStatus.INTERNAL_SERVER_ERROR, null);
 		}

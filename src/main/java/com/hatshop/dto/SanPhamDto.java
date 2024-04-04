@@ -1,5 +1,7 @@
 package com.hatshop.dto;
 
+import com.hatshop.entity.KieuDang;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -31,7 +33,7 @@ public class SanPhamDto {
 	private Boolean trangThai;
 	
 	@NotBlank
-	private String maKieuDang;
+	private KieuDang kieuDang;
 	
 	@NotBlank
 	private Double gia;
