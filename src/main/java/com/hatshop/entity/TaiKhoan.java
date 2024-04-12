@@ -1,6 +1,13 @@
 package com.hatshop.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +26,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Table(name = "TaiKhoan")
-public class TaiKhoan  implements Serializable{
+public class TaiKhoan  implements Serializable, UserDetails{
 
 	/**
 	 * 
@@ -42,8 +49,33 @@ public class TaiKhoan  implements Serializable{
 	@Column
 	private Boolean trangThai;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "maQuyen", referencedColumnName = "maQuyen")
 	private Quyen quyen;
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		 return Collections.singleton(new SimpleGrantedAuthority(quyen.getTenQuyen()));
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 
 }

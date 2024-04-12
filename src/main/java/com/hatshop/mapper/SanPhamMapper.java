@@ -5,10 +5,8 @@ import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.hatshop.component.ApplicationContextProvider;
 import com.hatshop.dto.SanPhamDto;
 import com.hatshop.entity.Gia;
@@ -16,7 +14,7 @@ import com.hatshop.entity.KieuDang;
 import com.hatshop.entity.SanPham;
 import com.hatshop.repository.GiaRepository;
 
-@Mapper
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.WARN)
 public interface SanPhamMapper {	
 	
 	SanPhamMapper INSTANT  = Mappers.getMapper(SanPhamMapper.class);
